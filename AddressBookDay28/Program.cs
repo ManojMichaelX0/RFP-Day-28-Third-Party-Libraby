@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 
 namespace AddressBookDay28
@@ -29,6 +30,7 @@ namespace AddressBookDay28
                 Console.WriteLine("Entre 7 for UC 8 and UC 9 Search Person Based on City or State");
                 Console.WriteLine("Enter 8 for Uc 10 Count city or state");
                 Console.WriteLine("Enter 9 for Sorting");
+                Console.WriteLine("Enter 10 for Read and Write AddressBook");
                 int value = Convert.ToInt32(Console.ReadLine());
                 switch (value)
                 {
@@ -189,13 +191,38 @@ namespace AddressBookDay28
                         Console.WriteLine("Count value of given State in Address Book 2:" + count);
                         break;
                     case 9:
-                        Console.WriteLine("Sorting AddressBooks");
+                        Console.WriteLine("Sorting AddressBook 1");
                         foreach (KeyValuePair<int, string> address in addressBook.OrderBy(value => value.Value))
                         {
                             Console.WriteLine("Key:{0}, Value {1}", address.Key, address.Value);
                         }
+                        Console.WriteLine("Sorting AddressBook 2");
+                        foreach (KeyValuePair<int, string> address in addressBook2.OrderBy(value => value.Value))
+                        {
+                            Console.WriteLine("Key:{0}, Value {1}", address.Key, address.Value);
+                        }
                         break;
+                    case 10:
+                        Console.WriteLine("Checking if File exists");
+                        FileOperations fo = new FileOperations();
+                        Console.WriteLine("\nChecking if File Exists or Not");
+                        fo.FileExits();
 
+                        Console.WriteLine("Reading and Writing");
+                        string txt = String.Join(Environment.NewLine, addressBook.Select(d => $"{d.Key};{d.Value};"));
+;                       string pathToTXT = @"D:\.net\Day 28 Third Party Libraby\AddressBookDay28\AddressBook.txt";
+                        File.WriteAllText(pathToTXT, txt);
+
+                        string[] lines;
+                        lines = File.ReadAllLines(pathToTXT);
+                        foreach (var l in lines)
+                        {
+                            Console.WriteLine(l);
+                        }
+                        Console.ReadKey();
+
+
+                        break;
                 }
                 Choice();
                 void Check(string fname, string lname)
@@ -401,7 +428,6 @@ namespace AddressBookDay28
                 void SearchCity2(string searchValue)
                 {
                     Console.WriteLine("Person Detials in book 2 in this City are :\n");
-                    int j = 0;
                     if (addressBook2.All(e => (addressBook2[3].Equals(searchValue))))
                     {
                         Console.WriteLine(addressBook2[0]);
@@ -438,12 +464,10 @@ namespace AddressBookDay28
 
 
                 }
-                //UC 11 Sorting
-                void Sort(string firstname)
-                {
-                  
+                
 
-                }
+               
+
             }
 
         }
