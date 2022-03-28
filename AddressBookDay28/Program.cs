@@ -215,8 +215,8 @@ namespace AddressBookDay28
                         File.WriteAllText(pathToTXT, txt);
 
 
-                        Console.WriteLine("Reading and Writing Address Book 1");
-                        string txt2 = String.Join(Environment.NewLine, addressBook.Select(d => $"{d.Key};{d.Value};"));
+                        Console.WriteLine("Reading and Writing Address Book 2");
+                        string txt2 = String.Join(Environment.NewLine, addressBook2.Select(d => $"{d.Key};{d.Value};"));
                         ; string pathToTXT2 = @"D:\.net\Day 28 Third Party Libraby\AddressBookDay28\AddressBook.txt";
                         File.WriteAllText(pathToTXT2, txt2); 
 
@@ -232,6 +232,9 @@ namespace AddressBookDay28
                         string csv = String.Join(Environment.NewLine, addressBook.Select(d => $"{d.Key};{d.Value};"));
                         string pathTocsv = @"D:\.net\Day 28 Third Party Libraby\AddressBookDay28\AddressBookCSV.csv";
                         File.WriteAllText(pathTocsv, csv);
+                        Console.WriteLine("Reading and Writing to Csv File Address Book 2");
+                        string csv2 = String.Join(Environment.NewLine, addressBook2.Select(d => $"{d.Key};{d.Value};"));
+                        File.WriteAllText(pathTocsv, csv2);                        
                         string[] lines2;
                         lines2 = File.ReadAllLines(pathTocsv);
                         foreach (var l in lines2)
