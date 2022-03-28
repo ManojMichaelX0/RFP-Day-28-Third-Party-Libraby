@@ -31,6 +31,7 @@ namespace AddressBookDay28
                 Console.WriteLine("Enter 8 for Uc 10 Count city or state");
                 Console.WriteLine("Enter 9 for Sorting");
                 Console.WriteLine("Enter 10 for Read and Write AddressBook");
+                Console.WriteLine("Enter 11 for Read and Write AddressBook to CSV file");
                 int value = Convert.ToInt32(Console.ReadLine());
                 switch (value)
                 {
@@ -208,10 +209,16 @@ namespace AddressBookDay28
                         Console.WriteLine("\nChecking if File Exists or Not");
                         fo.FileExits();
 
-                        Console.WriteLine("Reading and Writing");
+                        Console.WriteLine("Reading and Writing Address Book 1");
                         string txt = String.Join(Environment.NewLine, addressBook.Select(d => $"{d.Key};{d.Value};"));
 ;                       string pathToTXT = @"D:\.net\Day 28 Third Party Libraby\AddressBookDay28\AddressBook.txt";
                         File.WriteAllText(pathToTXT, txt);
+
+
+                        Console.WriteLine("Reading and Writing Address Book 1");
+                        string txt2 = String.Join(Environment.NewLine, addressBook.Select(d => $"{d.Key};{d.Value};"));
+                        ; string pathToTXT2 = @"D:\.net\Day 28 Third Party Libraby\AddressBookDay28\AddressBook.txt";
+                        File.WriteAllText(pathToTXT2, txt2); 
 
                         string[] lines;
                         lines = File.ReadAllLines(pathToTXT);
@@ -219,9 +226,18 @@ namespace AddressBookDay28
                         {
                             Console.WriteLine(l);
                         }
-                        Console.ReadKey();
-
-
+                        break;
+                    case 11:
+                        Console.WriteLine("Reading and Writing to Csv File Address Book 1");
+                        string csv = String.Join(Environment.NewLine, addressBook.Select(d => $"{d.Key};{d.Value};"));
+                        string pathTocsv = @"D:\.net\Day 28 Third Party Libraby\AddressBookDay28\AddressBookCSV.csv";
+                        File.WriteAllText(pathTocsv, csv);
+                        string[] lines2;
+                        lines2 = File.ReadAllLines(pathTocsv);
+                        foreach (var l in lines2)
+                        {
+                            Console.WriteLine(l);
+                        }
                         break;
                 }
                 Choice();
