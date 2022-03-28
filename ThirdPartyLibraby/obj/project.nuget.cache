@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "HaXS6V2IxdPlyeF9nGhNz4HM2zQiQqd//Pw0AnvG4gI3RJQqEpZ+VF/CD3g0+pBT0lnCzCMKPmcReHqNsgLwTw==",
+  "success": true,
+  "projectFilePath": "D:\\.net\\Day 28 Third Party Libraby\\ThirdPartyLibraby\\ThirdPartyLibraby\\ThirdPartyLibraby.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\manoj\\.nuget\\packages\\csvhelper\\27.2.1\\csvhelper.27.2.1.nupkg.sha512",
+    "C:\\Users\\manoj\\.nuget\\packages\\json.net\\1.0.33\\json.net.1.0.33.nupkg.sha512",
+    "C:\\Users\\manoj\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
